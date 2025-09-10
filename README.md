@@ -12,5 +12,6 @@ These pipelines have been tested on `python 3.8` and `3.9` with no adverse effec
 
 ## Getting started 
 
-* *If you do not have csv file with the magnitudes from the SPICY catalog, start with the first recipe titled 'retrieving_target_YSOs'. 
-* *If you have already have a csv file with the target YSO's, proceed to the first pipeline recipe titled 'data_format_pipeline'. 
+* If you do not have csv file with the magnitudes from the SPICY catalog, start with the first recipe titled 'retrieving_target_YSOs'. 
+* If you have already have a csv file with the target YSO's, proceed to the first pipeline recipe titled 'data_format_pipeline'. 
+
