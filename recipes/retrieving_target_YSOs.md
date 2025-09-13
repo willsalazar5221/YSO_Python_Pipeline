@@ -40,7 +40,7 @@ Then, if you wish to save the session, click on the Floppy Disk and go under "Sa
 ### <font color='blue'>With Gaia Dataset</font>
 
 To get the Gaia dataset, first we must go to [Gaia Archive](https://gea.esac.esa.int/archive/), Then, find the SEARCH tab -> Advanced (ADQL). In the box type the following:
-
+```
 SELECT
    TOP 1000000
    *
@@ -49,7 +49,7 @@ SELECT
 	l BETWEEN l_min AND l_max
   	AND
   	b BETWEEN b_min AND b_max
-
+```
 Next, Download format: CSV (dropdown at bottom of the page). Download by clicking on the button that looks like a stack of pancakes with a + sign. You can replace ra and dec with l and b and your galactic longitude and latitude numbers.
 
 
