@@ -65,6 +65,4 @@ Using the csv file you downloaded from the Gaia Archive, open it in TOPCAT. We w
 
 ## NEXT STEPS:
 
-$${\color{red}Color \space your \space \color{green}.md \space file \space \color{blue}in \space Github}$$
-
 Now proceed to the first pipeline recipe `data_format_pipeline`.
