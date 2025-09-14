@@ -19,7 +19,7 @@ You will also need the SPICY catalog dataset, which will be provided to you or y
 
 ## Process
 
-### <font color='red'>IR-Only Dataset</font>
+## ${\color{red}IR-Only \space Datasets \space Dataset}$
 
 In TOPCAT, open the fits file to access the SPICY catalog. We also need galactic latitude (b) and longitude (l) coordinates of your region for the cutout.
 
@@ -38,7 +38,7 @@ To save the subset, make sure under "Row Subsets" in the main console you have t
 Then, if you wish to save the session, click on the Floppy Disk and go under "Save Session". Then name the session and save.
 
 
-## ${\color{blue}With \space Gaia \space Dataset}$
+### ${\color{purple}With \space Gaia \space Dataset}$
 
 To get the Gaia dataset, first we must go to [Gaia Archive](https://gea.esac.esa.int/archive/), Then, find the SEARCH tab -> Advanced (ADQL). In the box type the following:
 ```
