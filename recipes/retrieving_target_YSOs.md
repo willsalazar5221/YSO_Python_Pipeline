@@ -19,7 +19,7 @@ You will also need the SPICY catalog dataset, which will be provided to you or y
 
 ## Process
 
-## ${\color{red}IR-Only \space Datasets \space Dataset}$
+### ${\color{red}IR-Only \space Datasets \space Dataset}$
 
 In TOPCAT, open the fits file to access the SPICY catalog. We also need galactic latitude (b) and longitude (l) coordinates of your region for the cutout.
 
