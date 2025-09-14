@@ -38,9 +38,7 @@ To save the subset, make sure under "Row Subsets" in the main console you have t
 Then, if you wish to save the session, click on the Floppy Disk and go under "Save Session". Then name the session and save.
 
 
-### $${\color{blue}With Gaia Dataset}$$
-
-<h1 style="background-color:DodgerBlue;"> With Gaia Dataset </h1>
+## ${\color{blue}With \space Gaia \space Dataset}$
 
 To get the Gaia dataset, first we must go to [Gaia Archive](https://gea.esac.esa.int/archive/), Then, find the SEARCH tab -> Advanced (ADQL). In the box type the following:
 ```
