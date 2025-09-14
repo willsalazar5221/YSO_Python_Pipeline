@@ -38,8 +38,7 @@ To save the subset, make sure under "Row Subsets" in the main console you have t
 Then, if you wish to save the session, click on the Floppy Disk and go under "Save Session". Then name the session and save.
 
 
-
-### <font color='blue'>With Gaia Dataset</font>
+### <h1 style="background-color:DodgerBlue;">With Gaia Dataset</h1>
 
 To get the Gaia dataset, first we must go to [Gaia Archive](https://gea.esac.esa.int/archive/), Then, find the SEARCH tab -> Advanced (ADQL). In the box type the following:
 ```
@@ -52,18 +51,18 @@ SELECT
   	AND
   	b BETWEEN b_min AND b_max
 ```
-Next, Download format: CSV (dropdown at bottom of the page). Download by clicking on the button that looks like a stack of pancakes with a + sign. You can replace ra and dec with l and b and your galactic longitude and latitude numbers.
+You can replace ra and dec with l and b and your galactic longitude and latitude numbers. Next find "Download format: CSV" (dropdown at bottom of the page). Download by clicking on the button that looks like a stack of pancakes with a + sign.
 
 
 Using the csv file you downloaded from the Gaia Archive, open it in TOPCAT. We want to first match and combine the table from the IR only dataset and Gaia. Using the "Create new table by matching rows in two existing table" button (matchsticks icon), we match on the GAIADR2 column in the IR data and source_id in the Gaia dataset. Use the "Exact Value" option on the "Algorithm" dropbox (can also do this using the "SKY" option by matching the l and b columns and using 1 arcsecond or less as the matching criteria.) For this table, you want to save the following table headers: 
 
 - Spitzer, phot_bp_mean_flux_over_error, phot_bp_mean_mag, phot_rp_mean_flux_over_error, phot_rp_mean_mag
 
-IMPORTANT: Save the "over_error" columns (as titled above), not the "error" columns, as those are not the true errors.
+<b>IMPORTANT</b>: Save the "over_error" columns (as titled above), not the "error" columns, as those are not the true errors.
 
 NOTE: The Gaia G band is not saved since it overlaps with the other two bands.
 
 
 ## NEXT STEPS:
 
-Now proceed to the first pipeline recipe 'data_format_pipeline'.
+Now proceed to the first pipeline recipe `data_format_pipeline`.
