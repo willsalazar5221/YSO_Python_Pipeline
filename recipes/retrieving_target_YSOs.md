@@ -23,9 +23,11 @@ OPTIONAL: If you would like to visualize the data, you can use DS9, which can be
 
 In TOPCAT, open the fits file to access the SPICY catalog. We also need galactic latitude (b) and longitude (l) coordinates of your region for the cutout.
 
-To create a cutout, we go to "Display row subsets" (it looks like blue oval with a red oval inside) and click on the Plus sign to add in a new subset. It must be in the format 'l<l_max && l>l_min && b<b_max && b>b_min'. An example of a cutout would be:
+To create a cutout, we go to "Display row subsets" (it looks like blue oval with a red oval inside) and click on the Plus sign to add in a new subset. It must be in the format:
 
-- l<13.15 && l>12.4 && b<0.35 && b>-0.6
+- `l<l_max && l>l_min && b<b_max && b>b_min`
+
+An example of a cutout would be: `l<13.15 && l>12.4 && b<0.35 && b>-0.6`
 
 Then go to "Display column metadata" (icon with a blue row separated from the grey rows). We only keep the following table headers: 
 
