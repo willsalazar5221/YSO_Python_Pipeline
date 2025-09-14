@@ -15,7 +15,7 @@ For this procedure, we solely need TOPCAT to slice the fits file from SPICY. If 
 
 You will also need the SPICY catalog dataset, which will be provided to you or you can retrieve it from https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/overview.html
 
-OPTIONAL: If you would like to visualize the data, you can use DS9, which can be downloaded at https://sites.google.com/cfa.harvard.edu/saoimageds9
+<i>OPTIONAL</i>: If you would like to visualize the data, you can use DS9, which can be downloaded at https://sites.google.com/cfa.harvard.edu/saoimageds9
 
 ## Process
 
@@ -38,7 +38,7 @@ To save the subset, make sure under "Row Subsets" in the main console you have t
 Then, if you wish to save the session, click on the Floppy Disk and go under "Save Session". Then name the session and save.
 
 
-### <h1 style="background-color:DodgerBlue;">With Gaia Dataset</h1>
+### <h1 style="background-color:DodgerBlue;"> With Gaia Dataset </h1>
 
 To get the Gaia dataset, first we must go to [Gaia Archive](https://gea.esac.esa.int/archive/), Then, find the SEARCH tab -> Advanced (ADQL). In the box type the following:
 ```
@@ -60,9 +60,11 @@ Using the csv file you downloaded from the Gaia Archive, open it in TOPCAT. We w
 
 <b>IMPORTANT</b>: Save the "over_error" columns (as titled above), not the "error" columns, as those are not the true errors.
 
-NOTE: The Gaia G band is not saved since it overlaps with the other two bands.
+<i>Note</i>: The Gaia G band is not saved since it overlaps with the other two bands.
 
 
 ## NEXT STEPS:
+
+$${\color{red}Color \space your \space \color{green}.md \space file \space \color{blue}in \space Github}$$
 
 Now proceed to the first pipeline recipe `data_format_pipeline`.
