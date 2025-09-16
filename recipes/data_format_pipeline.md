@@ -1,8 +1,6 @@
 # `retrieving_target_YSOs`
 
-
-**Author: William Salazar**
-
+**Author: William B. Salazar**
 
 ## Description
 
@@ -12,7 +10,7 @@ In addition, when introducing visible light magnitudes, we will use the text fil
 
 ## Version History
 
-- Current (v3) - July 2025 by William Salazar
+- Current (v3) - July 2025 by W. B. Salazar
 
 This version has been streamlined such that there is only two lines to run for the process. Previously modified from a Jupyter notebook version. Python blocks/lines will be preceded by >>> for clarity.
 
@@ -25,7 +23,7 @@ For the second part, you will need the text file outputted in the described Povi
 
 ## Process
 
-###Background
+### Background
 
 As background, we are calculating the necessary fluxes from the magnitudes. This performed in the following manner. In order to calculate the flux using the zero-point flux and magnitudes, we utilized the following equation
 
@@ -37,7 +35,7 @@ $$ \Delta Flux = \sqrt{(-ZP_v \cdot 0.4 \cdot \ln{10} \cdot 10^{-\frac{m}{2.5}} 
 
 Uncertainties for the Gaia magnitudes are given a 5% lower limit and calculated using the 'over error' columns. More information is detailed in lines 173 - 181 in the code.
 
-### <font color='red'>IR-Only Dataset</font>
+### ${\color{red}IR-Only \space Datasets \space Dataset}$
 
 First, we focus on using the infrared magnitudes first. For this run, we need the csv file as described in `retrieving_target_YSOs`. Once you have this, run the line
 
@@ -48,7 +46,7 @@ First, we focus on using the infrared magnitudes first. For this run, we need th
 where you may rename "df_IR" to any variable name. You can display the outputted text file as a dataframe. Note it doesn't save this dataframe to a text file. For "region_name.csv", rename it to the csv file name, keeping the csv extension. For "data_file_name", rename it to something appropriate to remember it, such as "your_region_name_IR". It is a text file without the extension so it can pass through the SED fitter correctly.
 
 
-### <font color='blue'>With Gaia Dataset</font>
+### ${\color{purple}With \space Gaia \space Dataset}$
 
 <i>Note</i>: This step should be done after running the SED Fitter once. Code for running that is provided in `NEXT STEPS` below.
 
@@ -91,11 +89,9 @@ For the Gaia run, we modify the following two line, where the rest are unchanged
 >>>
 
 ```
-
 #We introduce Gaia data now
 filters = ['GP', 'GB', '2J', '2H', '2K', 'I1', 'I2', 'I3', 'I4', 'M1'] 
 apertures = [3., 3., 3., 3., 3., 3., 3., 3., 3. 7.] * u.arcsec
-
 ```
 
 Once you run the SED fitting process, you now have pars files. Now proceed to the second pipeline recipe 'pars_analysis_pipeline'.
