@@ -42,7 +42,7 @@ First, we focus on using the infrared magnitudes first. For this run, we need th
 >>> 
 `df_IR = flag_txt_file_IR('region_name.csv', 'data_file_name')`
 
-where we define the folliwng variables from the line:
+where we define the following variables from the line:
 - "df_IR" - You may rename it to any variable name. This is to display the outputted text file as a dataframe. Note it doesn't save this dataframe to a text file
 - "region_name.csv" - Rename it to the csv file name, keeping the csv extension
 - "data_file_name" - Rename it to something appropriate to remember it, such as "your_region_name_IR". It is a text file without the extension so it can pass through the SED fitter correctly.
@@ -57,7 +57,10 @@ Now, after running the SED fitter once, if there is available visible light data
 >>>
 `df_gaia = flag_txt_file_Gaia(ugos_24um_file_name, spicy_gaia_match_csv_name, data_file_name)`
 
-where "ugos_24um_file_name" is the file created in the pre-SED fitting process. We will resuse it from the IR run. Then, "spicy_gaia_match_csv_name" is the second csv file we created in `retrieving_target_YSOs` recipe under `With Gaia Dataset`. The "data_file_name" is simply the name you chose for the text file to run in the SED Fitter. There is no need to add a .txt extension, however you may add it. It should not affect the SED fitting process. From here, you can use the file to run again in the SED Fitter.
+where we define the following variables from the line:
+- "ugos_24um_file_name" is the file created in the pre-SED fitting process. We will resuse it from the IR run
+- "spicy_gaia_match_csv_name" is the second csv file we created in `retrieving_target_YSOs` recipe under `With Gaia Dataset`
+- "data_file_name" is simply the name you chose for the text file to run in the SED Fitter. There is no need to add a .txt extension, however you may add it. It should not affect the SED fitting process. From here, you can use the file to run again in the SED Fitter.
 
 
 ## NEXT STEPS:
@@ -97,4 +100,3 @@ apertures = [3., 3., 3., 3., 3., 3., 3., 3., 3. 7.] * u.arcsec
 ```
 
 Once you run the SED fitting process, you now have pars files. Now proceed to the second pipeline recipe 'pars_analysis_pipeline'.
-
