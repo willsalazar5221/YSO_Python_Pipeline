@@ -99,4 +99,4 @@ filters = ['GP', 'GB', '2J', '2H', '2K', 'I1', 'I2', 'I3', 'I4', 'M1']
 apertures = [3., 3., 3., 3., 3., 3., 3., 3., 3. 7.] * u.arcsec
 ```
 
-Once you run the SED fitting process, you now have pars files. Now proceed to the second pipeline recipe 'pars_analysis_pipeline'.
+Once you run the SED fitting process, you now have pars files. Now proceed to the second pipeline recipe `pars_analysis_pipeline`.
