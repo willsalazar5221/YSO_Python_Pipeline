@@ -42,8 +42,10 @@ First, we focus on using the infrared magnitudes first. For this run, we need th
 >>> 
 `df_IR = flag_txt_file_IR('region_name.csv', 'data_file_name')`
 
-
-where you may rename "df_IR" to any variable name. You can display the outputted text file as a dataframe. Note it doesn't save this dataframe to a text file. For "region_name.csv", rename it to the csv file name, keeping the csv extension. For "data_file_name", rename it to something appropriate to remember it, such as "your_region_name_IR". It is a text file without the extension so it can pass through the SED fitter correctly.
+where we define the folliwng variables from the line:
+- "df_IR" - You may rename it to any variable name. This is to display the outputted text file as a dataframe. Note it doesn't save this dataframe to a text file
+- "region_name.csv" - Rename it to the csv file name, keeping the csv extension
+- "data_file_name" - Rename it to something appropriate to remember it, such as "your_region_name_IR". It is a text file without the extension so it can pass through the SED fitter correctly.
 
 
 ### ${\color{purple}With \space Gaia \space Dataset}$
@@ -95,3 +97,4 @@ apertures = [3., 3., 3., 3., 3., 3., 3., 3., 3. 7.] * u.arcsec
 ```
 
 Once you run the SED fitting process, you now have pars files. Now proceed to the second pipeline recipe 'pars_analysis_pipeline'.
+
