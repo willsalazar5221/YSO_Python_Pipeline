@@ -65,7 +65,7 @@ where we define the following variables from the line:
 
 ## NEXT STEPS:
 
-For both runs of the SED fitting process, you will use the created text files. This process can be found in Povich's repository with the recipe titled `sedfitting_procedure_ysos`, under the `Fit the 1-24 µm SEDs of YSO candidates with R17 YSO model sets.` section. For me, the block of code is modified to the following for the IR run:
+For both runs of the SED fitting process, you will use the created text files. This process can be found in Povich's repository with the recipe titled `sedfitting_procedure_ysos`, under the [`Fit the 1-24 µm SEDs of YSO candidates with R17 YSO model sets.` section] (https://github.com/mattpovich/sedfitting-ysos/blob/master/recipes/sedfitting_procedure_ysos.md). For me, the block of code is modified to the following for the IR run:
 
 >>>
 ```
@@ -87,15 +87,15 @@ fit_multiyso(data, filters, apertures, models_topdir,
 	   av_range=[0.,50.], cpd=4.)
 ```
 
-<b>IMPORTANT</b>: Change the string name in the variable `data` to the name of the text file you outputted above. For the `distance_range`, put in the distance range for your region. Note that `cpd` will be a number you must remember for the next recipe.
+<b>IMPORTANT</b>: Change the string name in the variable `data` to the name of the text file you outputted above. For the `distance_range`, put in the distance range for your region. Note that `cpd` will be a number you must choose and remember for the next recipe.
 
-For the Gaia run, we modify the following two line, where the rest are unchanged:
+For the Gaia run of the same region, we modify the following two line, where the rest are unchanged:
 
 >>>
 
 ```
 #We introduce Gaia data now
-filters = ['GP', 'GB', '2J', '2H', '2K', 'I1', 'I2', 'I3', 'I4', 'M1'] 
+filters = ['GBP', 'GRP', '2J', '2H', '2K', 'I1', 'I2', 'I3', 'I4', 'M1'] 
 apertures = [3., 3., 3., 3., 3., 3., 3., 3., 3. 7.] * u.arcsec
 ```
 
