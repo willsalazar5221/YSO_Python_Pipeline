@@ -1,7 +1,7 @@
 # `1_retrieving_target_YSOs`
 
 
-**Authors: William Salazar, Eliza Fabian, \& Austin Jones**
+**Authors: William B. Salazar, Eliza Fabian, \& Austin Jones**
 
 
 ## Description
