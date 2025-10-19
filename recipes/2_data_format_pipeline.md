@@ -65,7 +65,7 @@ where we define the following variables from the line:
 
 ## NEXT STEPS:
 
-For both runs of the SED fitting process, you will use the created text files. This process can be found in Povich's repository with the recipe titled `sedfitting_procedure_ysos`, under the [`Fit the 1-24 µm SEDs of YSO candidates with R17 YSO model sets.` section] (https://github.com/mattpovich/sedfitting-ysos/blob/master/recipes/sedfitting_procedure_ysos.md). For me, the block of code is modified to the following for the IR run:
+For both runs of the SED fitting process, you will use the created text files. This process can be found in Povich's repository with the recipe titled `1_sedfitting_procedure_ysos`, under the [`Fit the 1-24 µm SEDs of YSO candidates with R17 YSO model sets.` section] (https://github.com/mattpovich/sedfitting-ysos/blob/master/recipes/sedfitting_procedure_ysos.md). For me, the block of code is modified to the following for the IR run:
 
 >>>
 ```
@@ -100,4 +100,5 @@ apertures = [3., 3., 3., 3., 3., 3., 3., 3., 3. 7.] * u.arcsec
 ```
 
 Once you run the SED fitting process, you now have pars files. Now proceed to the second pipeline recipe `pars_analysis_pipeline`.
+
 
