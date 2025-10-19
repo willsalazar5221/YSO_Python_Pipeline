@@ -33,6 +33,7 @@ For this procedure, we solely need to run Python scripts and functions. I primar
 You will also need the isochrones from Haemmerlé et al. (2019). We use the tracks for the ages 0.5 Myr, 1.0 Myr, 2 Myr, 5 Myr, 31.6 Myr. (these files can be found under `scripts_and_files` for your convenience). For reference:
 
 Paper for Haemmerlé et al. (2019):  https://ui.adsabs.harvard.edu/abs/2019A%26A...624A.137H/abstract
+
 Parent directory containing all the isochrone tracks from the paper: https://obswww.unige.ch/Research/evol/tables_PMS/isochrones/
 
 You will also need a master list of stars in your region for the multiple plots to work. This master list is meant to be the csv file created in `1_retrieving_target_YSOs` recipe under `With Gaia Dataset`. We refer to it as `spicy_gaia_match_csv_name` in the second recipe.
@@ -87,4 +88,5 @@ Within the three scripts, there are multiple helper functions to plot the graphs
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; **star_names_list &nbsp;: &nbsp;*pandas.Series***
 <br>
+
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; A list or Series of star identifiers used for matching to model results.
