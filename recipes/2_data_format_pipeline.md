@@ -1,4 +1,4 @@
-# `retrieving_target_YSOs`
+# `2_data_format_pipeline`
 
 **Author: William B. Salazar**
 
@@ -100,3 +100,4 @@ apertures = [3., 3., 3., 3., 3., 3., 3., 3., 3. 7.] * u.arcsec
 ```
 
 Once you run the SED fitting process, you now have pars files. Now proceed to the second pipeline recipe `pars_analysis_pipeline`.
+
