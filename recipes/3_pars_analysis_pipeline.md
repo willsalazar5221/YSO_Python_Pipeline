@@ -70,9 +70,7 @@ $$ A_v = \sum_{n=1}^{i} P_i \cdot A_{v,i} $$
 Within the three scripts, there are multiple helper functions to plot the graphs. The docstrings are very detailed and provide insight into the variables as well as outputs. For simplicity, I will outline the main functions I use outright in the example Notebooks. 
 
 
-### ${\color{purple} multi\_single_hr_diagram_av_plots }$
-
-<span style="color: purple;"> multi_region_hr_diagram_av_plots </span>
+### ${\color{purple} multi&#95;single_hr_diagram_av_plots }$
 
 **multi_single_hr_diagram_av_plots(star_index_given, star_names_pd)**
 
@@ -95,7 +93,7 @@ Generate HR diagram and dust extinction plots for all model sets. Iterates over 
 
 &emsp; **Parameters:&ensp; None &nbsp;: &nbsp;*int***
 <br>
-Take in no parameters as it runs through `hr_diagram_and_dust_ext_region(model_type)` for each of the four model types we analyze. More details in the docstrings.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Take in no parameters as it runs through `hr_diagram_and_dust_ext_region(model_type)` for each of the four model types we analyze. More details in the docstrings.
 
 
 ### ${\color{purple}multi_lum_freq_distribution_plot}$
@@ -153,6 +151,7 @@ Plot HR diagram and dust extinction trends for combined model tree results. This
 &emsp; **Parameters:&ensp; df_pars &nbsp;: &nbsp;*pandas.DataFrame***
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model-fitting results from multiple regions or model combinations.
+
 
 
 
