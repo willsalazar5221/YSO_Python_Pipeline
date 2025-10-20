@@ -96,10 +96,10 @@ Generate HR diagram and dust extinction plots for the whole region of YSOs acros
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Take in no parameters as it runs through `hr_diagram_and_dust_ext_region(model_type)` for each of the four model types &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; we analyze. More details in the docstrings.
 
 
-### ${\color{purple} Luminosity \space Frequency \space  \space Distribution \space Plots}$
+### ${\color{purple} Luminosity \space Frequency \space Distribution \space Plots}$
 
 **multi_lum_freq_distribution_plot()**
-<br>
+
 Compare cumulative luminosity distributions between disk-only and disk+envelope YSO model sets using IR-only and Gaia-constrained fits. Iterates over the two supported model combinations ((1,16) and (2,17)) and calls `lum_freq_distribution_plot()` for each, producing cumulative distribution comparisons between disk-only and disk+envelope YSO models. This function computes weighted average luminosities for the chosen pair of model types, then generates side-by-side cumulative frequency distributions. A Kolmogorov–Smirnov test is performed to quantify the statistical difference between the two model sets, and results (including sample sizes and p-values) are annotated on the plots.
 
 &emsp; **Parameters:&ensp; None &nbsp;: &nbsp;*int***
@@ -151,6 +151,7 @@ Plot HR diagram and dust extinction trends for combined model tree results. This
 &emsp; **Parameters:&ensp; df_pars &nbsp;: &nbsp;*pandas.DataFrame***
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model-fitting results from multiple regions or model combinations.
+
 
 
 
