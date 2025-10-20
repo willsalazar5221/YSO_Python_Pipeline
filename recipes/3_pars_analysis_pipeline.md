@@ -70,15 +70,17 @@ $$ A_v = \sum_{n=1}^{i} P_i \cdot A_{v,i} $$
 Within the three scripts, there are multiple helper functions to plot the graphs. The docstrings are very detailed and provide insight into the variables as well as outputs. For simplicity, I will outline the main functions I use outright in the example Notebooks. 
 
 
-### ${\color{purple}multi\_single\_hr\_diagram\_av\_plots}$
+### ${\color{purple}`multi_single_hr_diagram_av_plots`}$
+
+<span style="color: purple;">`multi_region_hr_diagram_av_plots`</span>
 
 **multi_single_hr_diagram_av_plots(star_index_given, star_names_pd)**
-<br>
+
 The function iterates over four model types (`[1, 2, 16, 17]`) and calls `hr_diagram_and_dust_ext_single` for each, producing and saving plots for the given star. Generate and save plots for a selected star comparing IR-only and IR+Gaia model fits, including HR diagrams and dust extinction diagrams. Uses a master list to find stars that has both IR and Gaia data points.
 
 &emsp; **Parameters:&ensp; star_index_given &nbsp;: &nbsp;*int or str***
 <br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Either the index of the star in `star_names_pd` or the star's name (string), depending on how the downstream function handles it.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Either the index of the star in `star_names_pd` or the star's name (string), depending on how the downstream function &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; handles it.
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; **star_names_pd &nbsp;: &nbsp;*pandas.Series***
 <br>
@@ -151,5 +153,6 @@ Plot HR diagram and dust extinction trends for combined model tree results. This
 &emsp; **Parameters:&ensp; df_pars &nbsp;: &nbsp;*pandas.DataFrame***
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model-fitting results from multiple regions or model combinations.
+
 
 
