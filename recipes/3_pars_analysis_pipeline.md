@@ -104,10 +104,11 @@ Compare cumulative luminosity distributions between disk-only and disk+envelope 
 
 &emsp; **Parameters:&ensp; None &nbsp;: &nbsp;*int***
 <br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Take in no parameters as it runs through `lum_freq_distribution_plot(model_combo_type)` for each of the four model types we analyze. More details in the docstrings.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Take in no parameters as it runs through `lum_freq_distribution_plot(model_combo_type)` for each of the four model &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; types we analyze. More details in the docstrings.
 
 
-### ${\color{purple} Model \space Selection \space Tree}$
+### ${\color{purple}HR/Av \space Diagrams \space for \space Region}$
+### ${\color{purple}Model \space Selection \space Tree}$
 
 **final_model_select(master_list_IR, master_list_gaia, user_cdp)**
 
@@ -151,11 +152,3 @@ Plot HR diagram and dust extinction trends for combined model tree results. This
 &emsp; **Parameters:&ensp; df_pars &nbsp;: &nbsp;*pandas.DataFrame***
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model-fitting results from multiple regions or model combinations.
-
-
-
-
-
-
-
-
