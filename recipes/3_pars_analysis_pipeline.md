@@ -70,7 +70,7 @@ $$ A_v = \sum_{n=1}^{i} P_i \cdot A_{v,i} $$
 Within the three scripts, there are multiple helper functions to plot the graphs. The docstrings are very detailed and provide insight into the variables as well as outputs. For simplicity, I will outline the main functions I use outright in the example Notebooks. 
 
 
-### ${\color{purple} Single }$
+### ${\color{purple} Single \space Star \space HR/Av \space Diagrams }$
 
 **multi_single_hr_diagram_av_plots(star_index_given, star_names_pd)**
 
@@ -85,18 +85,18 @@ The function iterates over four model types (`[1, 2, 16, 17]`) and calls `hr_dia
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; A Series or DataFrame column containing star identifiers, used to match the given star index or name. 
 
 
-### ${\color{purple}multi_region_hr_diagram_av_plots}$
+### ${\color{purple}HR/Av \space Diagrams \space for \space Region}$
 
 **multi_region_hr_diagram_av_plots()**
-<br>
-Generate HR diagram and dust extinction plots for all model sets. Iterates over the four supported YSO model types and calls `hr_diagram_and_dust_ext_region()` for each. Produces one 2×2 figure per model set (IR-only HR diagram, Gaia HR diagram with isochrones, IR dust extinction, Gaia dust extinction).
+
+Generate HR diagram and dust extinction plots for the whole region of YSOs across all model sets. Iterates over the four supported YSO model types and calls `hr_diagram_and_dust_ext_region()` for each. Produces one 2×2 figure per model set (IR-only HR diagram, Gaia HR diagram with isochrones, IR dust extinction, Gaia dust extinction).
 
 &emsp; **Parameters:&ensp; None &nbsp;: &nbsp;*int***
 <br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Take in no parameters as it runs through `hr_diagram_and_dust_ext_region(model_type)` for each of the four model types we analyze. More details in the docstrings.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Take in no parameters as it runs through `hr_diagram_and_dust_ext_region(model_type)` for each of the four model types &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; we analyze. More details in the docstrings.
 
 
-### ${\color{purple}multi_lum_freq_distribution_plot}$
+### ${\color{purple} Luminosity \space Frequency \space  \space Distribution \space Plots}$
 
 **multi_lum_freq_distribution_plot()**
 <br>
@@ -104,13 +104,13 @@ Compare cumulative luminosity distributions between disk-only and disk+envelope 
 
 &emsp; **Parameters:&ensp; None &nbsp;: &nbsp;*int***
 <br>
-Take in no parameters as it runs through `lum_freq_distribution_plot(model_combo_type)` for each of the four model types we analyze. More details in the docstrings.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Take in no parameters as it runs through `lum_freq_distribution_plot(model_combo_type)` for each of the four model types we analyze. More details in the docstrings.
 
 
-### ${\color{purple}final_model_select}$
+### ${\color{purple} Model \space Selection \space Tree}$
 
 **final_model_select(master_list_IR, master_list_gaia, user_cdp)**
-<br>
+
 This function reads in the master SPICY catalog cutouts for IR and Gaia sources, along with model parameter files for four model types (1, 2, 16, and 17). It computes model likelihoods via `calc_p_dm_df()`, tags each model set with an identifier, and determines the best-fitting model for each source using `model_tree()`. If Gaia data are available for a star, its model selection is prioritized over IR-only fits, even when the chi-squared value is higher, due to the increased number of data points.
 
 
@@ -124,33 +124,34 @@ This function reads in the master SPICY catalog cutouts for IR and Gaia sources,
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; **user_cdp &nbsp;: &nbsp;*float***
 <br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Critical delta probability threshold used in the model likelihood calculation (Eq. 21 in Robitaille, T. P. 2017). Recorded in `2_data_format_pipeline` under `Next Steps`.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Critical delta probability threshold used in the model likelihood calculation (Eq. 21 in Robitaille, T. P. 2017). Recorded in &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; `2_data_format_pipeline` under `Next Steps`.
 
 
-### ${\color{purple}multi_param_weight_avg_tree}$
+### ${\color{purple}Parameter \space Weighting}$
 
 **multi_param_weight_avg_tree(df, param_list)**
-<br>
+
 Compute weighted and unweighted means for multiple parameters. This function applies `weight_mean_tree` to several parameter columns (e.g., extinction, stellar radius, temperature, disk mass, luminosity) and combines the results into a single DataFrame. It preserves source metadata and appends mean statistics for each parameter side by side.
 
 &emsp; **Parameters:&ensp; df &nbsp;: &nbsp;*pandas.DataFrame***
 <br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model fit results for multiple sources. Must include columns required by `weight_mean_tree(df, col_name)`
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model fit results for multiple sources. Must include columns required by &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; `weight_mean_tree(df, col_name)`
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; **param_list &nbsp;: &nbsp;*list of str***
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; List of parameter column names for which to compute weighted and unweighted means.
 
 
-### ${\color{purple}hr_diagram_and_dust_ext_region_tree}$
+### ${\color{purple}HR/Av \space Diagrams \space for \space Regions}$
 
 **hr_diagram_and_dust_ext_region_tree(df_pars)**
-<br>
+
 Plot HR diagram and dust extinction trends for combined model tree results. This function generates a two-panel figure summarizing the stellar properties from all model combinations (sp_s_i, sp_h_i, spubsmi, spubhmi).
 
 &emsp; **Parameters:&ensp; df_pars &nbsp;: &nbsp;*pandas.DataFrame***
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model-fitting results from multiple regions or model combinations.
+
 
 
 
