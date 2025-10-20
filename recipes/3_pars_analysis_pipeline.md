@@ -39,10 +39,7 @@ Parent directory containing all the isochrone tracks from the paper: https://obs
 You will also need a master list of stars in your region for the multiple plots to work. This master list is meant to be the csv file created in `1_retrieving_target_YSOs` recipe under `With Gaia Dataset`. We refer to it as `spicy_gaia_match_csv_name` in the second recipe.
 
 
-## Process
-
-### Background
-
+## Background
 
 In order to calculate the weighted mean, we following the following formula to obtain the weights (Povich, et al. 2013):
 
@@ -68,25 +65,89 @@ $$ A_v = \sum_{n=1}^{i} P_i \cdot A_{v,i} $$
 ,where we note $A_v$ is the weighted average.
 
 
-### Functions
+## Functions
 
 Within the three scripts, there are multiple helper functions to plot the graphs. The docstrings are very detailed and provide insight into the variables as well as outputs. For simplicity, I will outline the main functions I use outright in the example Notebooks. 
 
-#### multi_single_hr_diagram_av_plots
 
-**hr_diagram_and_dust_ext_single(model_type, star_index_or_name, star_names_list)**
-<br>
-&emsp; Generate and save plots for a selected star comparing IR-only and IR+Gaia model fits, including HR diagrams and dust extinction diagrams.
+### ${\color{purple}multi_single_hr_diagram_av_plots}$
 
-&emsp; **Parameters:&ensp; model_type &nbsp;: &nbsp;*int***
+**multi_single_hr_diagram_av_plots(star_index_given, star_names_pd)**
 <br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Which model family to use, This will 1,2,16, or 17.
-<br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; **star_index_or_name &nbsp;: &nbsp;*int or str***
-<br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Either the index of the star in `star_names_list` or the star's name (string). 
-<br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; **star_names_list &nbsp;: &nbsp;*pandas.Series***
-<br>
+The function iterates over four model types (`[1, 2, 16, 17]`) and calls `hr_diagram_and_dust_ext_single` for each, producing and saving plots for the given star. Generate and save plots for a selected star comparing IR-only and IR+Gaia model fits, including HR diagrams and dust extinction diagrams. Uses a master list to find stars that has both IR and Gaia data points.
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; A list or Series of star identifiers used for matching to model results.
+&emsp; **Parameters:&ensp; star_index_given &nbsp;: &nbsp;*int or str***
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Either the index of the star in `star_names_pd` or the star's name (string), depending on how the downstream function handles it.
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; **star_names_pd &nbsp;: &nbsp;*pandas.Series***
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; A Series or DataFrame column containing star identifiers, used to match the given star index or name. 
+
+
+### ${\color{purple}multi_region_hr_diagram_av_plots}$
+
+**multi_region_hr_diagram_av_plots()**
+<br>
+Generate HR diagram and dust extinction plots for all model sets. Iterates over the four supported YSO model types and calls `hr_diagram_and_dust_ext_region()` for each. Produces one 2×2 figure per model set (IR-only HR diagram, Gaia HR diagram with isochrones, IR dust extinction, Gaia dust extinction).
+
+&emsp; **Parameters:&ensp; None &nbsp;: &nbsp;*int***
+<br>
+Take in no parameters as it runs through `hr_diagram_and_dust_ext_region(model_type)` for each of the four model types we analyze. More details in the docstrings.
+
+
+### ${\color{purple}multi_lum_freq_distribution_plot}$
+
+**multi_lum_freq_distribution_plot()**
+<br>
+Compare cumulative luminosity distributions between disk-only and disk+envelope YSO model sets using IR-only and Gaia-constrained fits. Iterates over the two supported model combinations ((1,16) and (2,17)) and calls `lum_freq_distribution_plot()` for each, producing cumulative distribution comparisons between disk-only and disk+envelope YSO models. This function computes weighted average luminosities for the chosen pair of model types, then generates side-by-side cumulative frequency distributions. A Kolmogorov–Smirnov test is performed to quantify the statistical difference between the two model sets, and results (including sample sizes and p-values) are annotated on the plots.
+
+&emsp; **Parameters:&ensp; None &nbsp;: &nbsp;*int***
+<br>
+Take in no parameters as it runs through `lum_freq_distribution_plot(model_combo_type)` for each of the four model types we analyze. More details in the docstrings.
+
+
+### ${\color{purple}final_model_select}$
+
+**final_model_select(master_list_IR, master_list_gaia, user_cdp)**
+<br>
+This function reads in the master SPICY catalog cutouts for IR and Gaia sources, along with model parameter files for four model types (1, 2, 16, and 17). It computes model likelihoods via `calc_p_dm_df()`, tags each model set with an identifier, and determines the best-fitting model for each source using `model_tree()`. If Gaia data are available for a star, its model selection is prioritized over IR-only fits, even when the chi-squared value is higher, due to the increased number of data points.
+
+
+&emsp; **Parameters:&ensp; master_list_IR &nbsp;: &nbsp;*str***
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; File path to the IR master catalog (CSV) containing SPICY cutout data.
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; **master_list_gaia &nbsp;: &nbsp;*str***
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; File path to the Gaia master catalog (CSV) containing SPICY cutout data.
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; **user_cdp &nbsp;: &nbsp;*float***
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Critical delta probability threshold used in the model likelihood calculation (Eq. 21 in Robitaille, T. P. 2017). Recorded in `2_data_format_pipeline` under `Next Steps`.
+
+
+### ${\color{purple}multi_param_weight_avg_tree}$
+
+**multi_param_weight_avg_tree(df, param_list)**
+<br>
+Compute weighted and unweighted means for multiple parameters. This function applies `weight_mean_tree` to several parameter columns (e.g., extinction, stellar radius, temperature, disk mass, luminosity) and combines the results into a single DataFrame. It preserves source metadata and appends mean statistics for each parameter side by side.
+
+&emsp; **Parameters:&ensp; df &nbsp;: &nbsp;*pandas.DataFrame***
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model fit results for multiple sources. Must include columns required by `weight_mean_tree(df, col_name)`
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; **param_list &nbsp;: &nbsp;*list of str***
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; List of parameter column names for which to compute weighted and unweighted means.
+
+
+### ${\color{purple}hr_diagram_and_dust_ext_region_tree}$
+
+**hr_diagram_and_dust_ext_region_tree(df_pars)**
+<br>
+Plot HR diagram and dust extinction trends for combined model tree results. This function generates a two-panel figure summarizing the stellar properties from all model combinations (sp_s_i, sp_h_i, spubsmi, spubhmi).
+
+&emsp; **Parameters:&ensp; df_pars &nbsp;: &nbsp;*pandas.DataFrame***
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model-fitting results from multiple regions or model combinations.
