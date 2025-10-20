@@ -107,7 +107,7 @@ Compare cumulative luminosity distributions between disk-only and disk+envelope 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Take in no parameters as it runs through `lum_freq_distribution_plot(model_combo_type)` for each of the four model &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; types we analyze. More details in the docstrings.
 
 
-### ${\color{purple}Model \space Selection \space Tree}$
+### ${\color{purple} Model \space Selection \space Tree}$
 
 **final_model_select(master_list_IR, master_list_gaia, user_cdp)**
 
@@ -135,7 +135,7 @@ Compute weighted and unweighted means for multiple parameters. This function app
 
 &emsp; **Parameters:&ensp; df &nbsp;: &nbsp;*pandas.DataFrame***
 <br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model fit results for multiple sources. Must include columns required by &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; `weight_mean_tree(df, col_name)`
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model fit results for multiple sources. Must include columns required by &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; `weight_mean_tree(df, col_name)`
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; **param_list &nbsp;: &nbsp;*list of str***
 <br>
@@ -151,4 +151,3 @@ Plot HR diagram and dust extinction trends for combined model tree results. This
 &emsp; **Parameters:&ensp; df_pars &nbsp;: &nbsp;*pandas.DataFrame***
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model-fitting results from multiple regions or model combinations.
-
