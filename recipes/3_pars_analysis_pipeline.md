@@ -85,7 +85,7 @@ The function iterates over four model types (`[1, 2, 16, 17]`) and calls `hr_dia
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; A Series or DataFrame column containing star identifiers, used to match the given star index or name. 
 
 
-### ${\color{purple}{Model \space Selection \space Tree}}$
+### ${\color{purple} Region \space HR/Av \space Diagrams }$
 
 **multi_region_hr_diagram_av_plots()**
 
@@ -107,12 +107,11 @@ Compare cumulative luminosity distributions between disk-only and disk+envelope 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; Take in no parameters as it runs through `lum_freq_distribution_plot(model_combo_type)` for each of the four model &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; types we analyze. More details in the docstrings.
 
 
-### ${\color{purple} Model \space Selection \space Tree}$
+### ${\color{purple} Model \space Star \space HR/Av \space Diagrams }$
 
 **final_model_select(master_list_IR, master_list_gaia, user_cdp)**
 
 This function reads in the master SPICY catalog cutouts for IR and Gaia sources, along with model parameter files for four model types (1, 2, 16, and 17). It computes model likelihoods via `calc_p_dm_df()`, tags each model set with an identifier, and determines the best-fitting model for each source using `model_tree()`. If Gaia data are available for a star, its model selection is prioritized over IR-only fits, even when the chi-squared value is higher, due to the increased number of data points.
-
 
 &emsp; **Parameters:&ensp; master_list_IR &nbsp;: &nbsp;*str***
 <br>
@@ -151,3 +150,4 @@ Plot HR diagram and dust extinction trends for combined model tree results. This
 &emsp; **Parameters:&ensp; df_pars &nbsp;: &nbsp;*pandas.DataFrame***
 <br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; DataFrame containing model-fitting results from multiple regions or model combinations.
+
