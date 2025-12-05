@@ -35,7 +35,7 @@ $$ \Delta Flux = \sqrt{(-ZP_v \cdot 0.4 \cdot \ln{10} \cdot 10^{-\frac{m}{2.5}} 
 
 Uncertainties for the Gaia magnitudes are given a 5% lower limit and calculated using the 'over error' columns. More information is detailed in lines 173 - 181 in the code.
 
-### ${\color{red}IR-Only \space Datasets \space Dataset}$
+### ${\color{red}IR-Only \space Dataset}$
 
 First, we focus on using the infrared magnitudes first. For this run, we need the csv file as described in `retrieving_target_YSOs`. Once you have this, run the line
 
@@ -100,5 +100,6 @@ apertures = [3., 3., 3., 3., 3., 3., 3., 3., 3. 7.] * u.arcsec
 ```
 
 Once you run the SED fitting process, you now have pars files. Now proceed to the second pipeline recipe `pars_analysis_pipeline`.
+
 
 
